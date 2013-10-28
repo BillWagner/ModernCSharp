@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +49,18 @@ namespace ClassicCSharp
     {
         static void Main(string[] args)
         {
+            ArrayList board = new ArrayList();
+            for (int row = 1; row < 9; row++)
+                for (char col = 'a'; col < 'k'; col++)
+                {
+                    BoardSpace b = new BoardSpace();
+                    b.Row = row;
+                    b.Column = col;
+                    board.Add(b);
+                }
+
+            foreach (var item in board)
+                Console.WriteLine(item);
         }
     }
 }
