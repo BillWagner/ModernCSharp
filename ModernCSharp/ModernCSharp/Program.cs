@@ -10,6 +10,16 @@ namespace ModernCSharp
     {
         static void Main(string[] args)
         {
+            //FirstExample();
+
+            var oddSquares = from n in Enumerable.Range(0, 12)
+                             where n % 2 == 1
+                             select n * n;
+            oddSquares.ForAll(item => Console.WriteLine(item));
+
+        }
+        private static void FirstExample()
+        {
             var board = from row in Enumerable.Range(1, 8)
                         from index in Enumerable.Range(0, 8)
                         let column = (char)('a' + index)
