@@ -10,11 +10,17 @@ namespace ModernCSharp
     {
         static void Main(string[] args)
         {
+
+            int i = 5;
+            if (i.GreaterThan(12))
+                Console.WriteLine(true);
             //FirstExample();
 
             var oddSquares = from n in Enumerable.Range(0, 12)
                              where n % 2 == 1
                              select n * n;
+
+
             oddSquares.ForAll(item => Console.WriteLine(item));
 
         }
@@ -25,6 +31,7 @@ namespace ModernCSharp
                         let column = (char)('a' + index)
                         select new { row, column };
 
+            board.OrderBy(squares => squares.column);
             board.ForAll(item => Console.WriteLine(item));
         }
     }
@@ -34,6 +41,13 @@ namespace ModernCSharp
         {
             foreach (T item in sequence)
                 action(item);
+        }
+        public static bool GreaterThan<T>(this T left, T right) where T : IComparable<T>
+        {
+            if (left.CompareTo(right) > 0)
+                return true;
+            else return false;
+
         }
     }
 }
